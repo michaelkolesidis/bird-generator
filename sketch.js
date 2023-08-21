@@ -76,7 +76,7 @@ function setup() {
   // camera(-150, 1, 0); // right side view
   // camera(1,150,0); // bottom view
   // camera(1,-150,0); // top view
-  camera(100, -40, 80, 0, 0, 0);
+  camera(130, -40, 115, 0, 0, 0);
 }
 
 function draw() {
