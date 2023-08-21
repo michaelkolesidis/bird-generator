@@ -1,5 +1,6 @@
 # Bird Generator™
 
+![Desktop 0](./screenshots/desktop_0.png)
 ![Mobile 0](./screenshots/mobile_0.png)
 
 A Bird Generator™ made with p5.js.
