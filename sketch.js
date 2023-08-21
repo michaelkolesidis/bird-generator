@@ -9,6 +9,8 @@ let feetSize;
 let eyeBrows;
 let colorPicker;
 let buttonSave;
+let directionalLightX = 0;
+let directionalLightY = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
@@ -16,51 +18,54 @@ function setup() {
 
   // Controls
   colorPicker = createColorPicker("#ffde11");
-  colorPicker.position(50, height / 2 - 120);
+  colorPicker.position(35, windowHeight - 300);
   colorPicker.style("height", "40px");
   colorPicker.style("width", "40px");
   colorPicker.style("padding", "0 2px");
   colorPicker.style("background-color", "#f5f5f5");
   colorPicker.style("cursor", "pointer");
 
-  widthBody = createSlider(20, 80, 0);
-  widthBody.position(50, height / 2 + 30);
-  widthBody.style("width", "120px");
-  widthBody.addClass("mySliders");
+  beakLength = createSlider(9, 25, 1);
+  beakLength.position(35, windowHeight - 220);
+  beakLength.style("width", "120px");
+  beakLength.addClass("slider");
 
   lengthBody = createSlider(10, 80, 0);
-  lengthBody.position(50, height / 2);
+  lengthBody.position(35, windowHeight - 190);
   lengthBody.style("width", "120px");
-  lengthBody.addClass("mySliders");
+  lengthBody.addClass("slider");
+
+  widthBody = createSlider(20, 80, 0);
+  widthBody.position(35, windowHeight - 160);
+  widthBody.style("width", "120px");
+  widthBody.addClass("slider");
 
   heightBody = createSlider(10, 60, 0);
-  heightBody.position(50, height / 2 + 60);
+  heightBody.position(35, windowHeight - 130);
   heightBody.style("width", "120px");
-  heightBody.addClass("mySliders");
+  heightBody.addClass("slider");
 
   legHeight = createSlider(10, 29, 0, 0.5);
-  legHeight.position(50, height / 2 + 90);
+  legHeight.position(35, windowHeight - 100);
   legHeight.style("width", "120px");
-  legHeight.addClass("mySliders");
+  legHeight.addClass("slider");
 
   feetSize = createSlider(0, 4, 0, 0.1);
-  feetSize.position(50, height / 2 + 120);
+  feetSize.position(35, windowHeight - 70);
   feetSize.style("width", "120px");
-  feetSize.addClass("mySliders");
-
-  beakLength = createSlider(9, 25, 1);
-  beakLength.position(50, height / 2 - 30);
-  beakLength.style("width", "120px");
-  beakLength.addClass("mySliders");
+  feetSize.addClass("slider");
 
   eyeBrows = createSlider(-10, 30, -10, 1);
-  eyeBrows.position(50, height / 2 + 150);
+  eyeBrows.position(35, windowHeight - 40);
   eyeBrows.style("width", "120px");
-  eyeBrows.addClass("mySliders");
+  eyeBrows.addClass("slider");
 
   // Save Button
   buttonSave = createButton("SAVE");
-  buttonSave.position(windowWidth / 1.25, windowHeight / 2);
+  buttonSave.position(windowWidth - 140, windowHeight - 150);
+  buttonSave.style("width", "100px");
+  buttonSave.style("height", "40px");
+
   buttonSave.style("padding", "3px 6px");
   buttonSave.style("border", "1px solid black");
   buttonSave.style("background-color", "#f5f5f5");
@@ -82,7 +87,10 @@ function setup() {
 function draw() {
   background("#f0f0f0");
   ambientLight("#ffffff");
-  orbitControl(2, 2.5, 0.01);
+  // let directionalLightX = (mouseX / width - 0.5) * 2;
+  // let directionalLightY = (mouseY / height - 0.5) * 2;
+  directionalLight(50, 50, 50, -directionalLightX, -directionalLightY, -1);
+  orbitControl(2, 2.5, 0.01, { disableTouchActions: true });
 
   // Body
   noStroke();
@@ -186,9 +194,25 @@ function draw() {
 }
 
 // Utility Functions
+// Update directional light based on the mouse click position
+function mousePressed() {
+  directionalLightX = (mouseX / width - 0.5) * 2;
+  directionalLightY = (mouseY / height - 0.5) * 2;
+}
+
 // Window resize
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  camera(130, -40, 115, 0, 0, 0);
+  colorPicker.position(35, windowHeight - 300);
+  beakLength.position(35, windowHeight - 220);
+  lengthBody.position(35, windowHeight - 190);
+  widthBody.position(35, windowHeight - 160);
+  heightBody.position(35, windowHeight - 130);
+  legHeight.position(35, windowHeight - 100);
+  feetSize.position(35, windowHeight - 70);
+  eyeBrows.position(35, windowHeight - 40);
+  buttonSave.position(windowWidth - 140, windowHeight - 150);
 }
 
 // Save button color on hover
@@ -203,5 +227,7 @@ function hoverOut() {
 
 // Screenshot
 function screenShot() {
-  save("my-bird.png");
+  save("my_bird.png");
 }
+
+// 🐦🦜🦃🐓🐤🐧🕊️🦅🦆🦢🦉🦤🦩🦚

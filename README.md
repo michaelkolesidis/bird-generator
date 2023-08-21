@@ -1,6 +1,6 @@
-# Bird Generator
+# Bird Generator™
 
-<img src="./screenshots/yellow.png" width="700px">
+![Mobile 0](./screenshots/mobile_0.png)
 
 A Bird Generator™ made with p5.js.
 
@@ -14,10 +14,43 @@ A Bird Generator™ made with p5.js.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://en.wikipedia.org/wiki/HTML5"><img src="https://github.com/michaelkolesidis/tech-icons/blob/main/icons/html5/html5-plain.svg" height="50px" /></a>
 
+## Information
+
+**Bird, lights, go!**
+
+You can use the color picker and the sliders to generate your bird of choice.
+You can edit:
+
+- Bird's color
+- Body height
+- Body width
+- Body length
+- Beak length
+- Leg height
+- Foot size
+- Eyebrow angle
+
+Lastly, click (or tap) around to place the source of the directional light.
+
+When you are happy with the result, simply click the _Save_ button and download your bird!
+
 ## Screenshots
 
-<img src="./screenshots/red.png" width="700px">
-<img src="./screenshots/blue.png" width="700px">
+### Desktop
+
+![Desktop 1](./screenshots/desktop_1.png)
+![Desktop 2](./screenshots/desktop_2.png)
+
+### Mobile
+
+![Mobile 1](./screenshots/mobile_1.png)
+![Mobile 2](./screenshots/mobile_2.png)
+
+## Acknowledgments
+
+- Thanks to all p5.js contributors and, especially, to [_inaridarkfox4231_](https://github.com/inaridarkfox4231) for their contributions in impoving orbitControl() in version 1.7.0.
+
+- Sliders' CSS were written by [_amygoodchild_](https://github.com/amygoodchild) and were edited by me. They are available at p5js.org.
 
 ## License
 
@@ -25,3 +58,5 @@ A Bird Generator™ made with p5.js.
 
 Copyright (c) 2023 Michael Kolesidis<br>
 Licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html).
+
+🐦🦜🦃🐓🐤🐧🕊️🦅🦆🦢🦉🦤🦩🦚

@@ -10,6 +10,12 @@
   margin: 0;
   box-sizing: border-box;
   user-select: none;
+  -moz-user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  touch-action: none;
 }
 
 html,
@@ -32,10 +38,6 @@ a:visited {
   width: 100%;
 }
 
-.instruction {
-  font-family: "DotGothic16", sans-serif;
-}
-
 #header-left {
   padding-left: 40px;
   font-family: "Manrope", sans-serif;
@@ -51,14 +53,25 @@ a:visited {
   font-size: 14px;
 }
 
-/* sliders css written by amygoodchild and were edited by me - available at p5js.org*/
-.mySliders {
+.instruction {
+  font-family: "DotGothic16", sans-serif;
+}
+
+#rotate::after {
+  content: "click + drag to rotate";
+}
+
+#light::after {
+  content: "click to move light";
+}
+
+.slider {
   background-color: transparent;
   -webkit-appearance: none;
   appearance: none;
 }
 
-.mySliders::-webkit-slider-runnable-track {
+.slider::-webkit-slider-runnable-track {
   background: var(--black);
   height: 2px;
   -webkit-appearance: none;
@@ -66,7 +79,7 @@ a:visited {
   cursor: pointer;
 }
 
-.mySliders::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
   width: 7px;
   height: 14px;
   background: var(--black);
@@ -74,4 +87,31 @@ a:visited {
   -webkit-appearance: none;
   margin-top: -7px;
   border-radius: 0px;
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .instruction {
+    padding-left: 40px;
+  }
+
+  #rotate {
+    margin-top: 20px;
+  }
+
+  #rotate::after {
+    content: "touch + move to rotate";
+  }
+
+  #light::after {
+    content: "touch to move light";
+  }
+
+  #header-right {
+    padding-left: 40px;
+    padding-right: 0;
+  }
 }
