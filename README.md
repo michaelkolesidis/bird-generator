@@ -39,11 +39,13 @@ When you are happy with the result, simply click the _Save_ button and download 
 ### Desktop
 
 ![Desktop 1](./screenshots/desktop_1b.png)
+
 ![Desktop 2](./screenshots/desktop_2.png)
 
 ### Mobile
 
 ![Mobile 1](./screenshots/mobile_1.png)
+
 ![Mobile 2](./screenshots/mobile_2.png)
 
 ## Acknowledgments
