@@ -8,6 +8,7 @@ let beakLength;
 let feetSize;
 let eyeBrows;
 let colorPicker;
+let colorPickerBeakLegs;
 let buttonSave;
 let directionalLightX = 0;
 let directionalLightY = 0;
@@ -17,75 +18,10 @@ function setup() {
   angleMode(DEGREES);
 
   // Controls
-  colorPicker = createColorPicker("#ffde11");
-  colorPicker.position(35, windowHeight - 300);
-  colorPicker.style("height", "40px");
-  colorPicker.style("width", "40px");
-  colorPicker.style("padding", "0 2px");
-  colorPicker.style("background-color", "#f5f5f5");
-  colorPicker.style("cursor", "pointer");
-
-  colorPickerBeakLegs = createColorPicker("#e36e20");
-  colorPickerBeakLegs.position(115, windowHeight - 300);
-  console.log(window.innerWidth)
-  window.innerWidth < 380
-    ? colorPickerBeakLegs.position(35, windowHeight - 370)
-    : colorPickerBeakLegs.position(115, windowHeight - 300);
-  colorPickerBeakLegs.style("height", "40px");
-  colorPickerBeakLegs.style("width", "40px");
-  colorPickerBeakLegs.style("padding", "0 2px");
-  colorPickerBeakLegs.style("background-color", "#f5f5f5");
-  colorPickerBeakLegs.style("cursor", "pointer");
-
-  beakLength = createSlider(9, 25, 1);
-  beakLength.position(35, windowHeight - 220);
-  beakLength.style("width", "120px");
-  beakLength.addClass("slider");
-
-  lengthBody = createSlider(10, 80, 0);
-  lengthBody.position(35, windowHeight - 190);
-  lengthBody.style("width", "120px");
-  lengthBody.addClass("slider");
-
-  widthBody = createSlider(20, 80, 0);
-  widthBody.position(35, windowHeight - 160);
-  widthBody.style("width", "120px");
-  widthBody.addClass("slider");
-
-  heightBody = createSlider(10, 60, 0);
-  heightBody.position(35, windowHeight - 130);
-  heightBody.style("width", "120px");
-  heightBody.addClass("slider");
-
-  legHeight = createSlider(10, 29, 0, 0.5);
-  legHeight.position(35, windowHeight - 100);
-  legHeight.style("width", "120px");
-  legHeight.addClass("slider");
-
-  feetSize = createSlider(0, 4, 0, 0.1);
-  feetSize.position(35, windowHeight - 70);
-  feetSize.style("width", "120px");
-  feetSize.addClass("slider");
-
-  eyeBrows = createSlider(-10, 30, -10, 1);
-  eyeBrows.position(35, windowHeight - 40);
-  eyeBrows.style("width", "120px");
-  eyeBrows.addClass("slider");
+  initializeControls();
 
   // Save Button
-  buttonSave = createButton("SAVE");
-  buttonSave.position(windowWidth - 140, windowHeight - 150);
-  buttonSave.style("width", "100px");
-  buttonSave.style("height", "40px");
-
-  buttonSave.style("padding", "3px 6px");
-  buttonSave.style("border", "1px solid black");
-  buttonSave.style("background-color", "#f5f5f5");
-  buttonSave.style("font-family", "Manrope");
-  buttonSave.style("cursor", "pointer");
-  buttonSave.mouseOver(hoverIn);
-  buttonSave.mouseOut(hoverOut);
-  buttonSave.mousePressed(screenShot);
+  initializeSaveButton();
 
   // Camera
   // (some extra camera positions - may be used in the future)
@@ -96,14 +32,99 @@ function setup() {
   camera(130, -40, 115, 0, 0, 0);
 }
 
+function initializeControls() {
+  // Color picker for body, head, and tail
+  colorPicker = createColorPicker("#ffde11");
+  colorPicker.position(35, windowHeight - 300);
+  colorPicker.style("height", "40px");
+  colorPicker.style("width", "40px");
+  colorPicker.style("padding", "0 2px");
+  colorPicker.style("background-color", "#f5f5f5");
+  colorPicker.style("cursor", "pointer");
+
+  // Color picker for beak, legs, and feet
+  colorPickerBeakLegs = createColorPicker("#e36e20");
+  colorPickerBeakLegs.position(115, windowHeight - 300);
+  console.log(window.innerWidth);
+  window.innerWidth < 380
+    ? colorPickerBeakLegs.position(35, windowHeight - 370)
+    : colorPickerBeakLegs.position(115, windowHeight - 300);
+  colorPickerBeakLegs.style("height", "40px");
+  colorPickerBeakLegs.style("width", "40px");
+  colorPickerBeakLegs.style("padding", "0 2px");
+  colorPickerBeakLegs.style("background-color", "#f5f5f5");
+  colorPickerBeakLegs.style("cursor", "pointer");
+
+  // Slider for beak length
+  beakLength = createSlider(9, 25, 1);
+  beakLength.position(35, windowHeight - 220);
+  beakLength.style("width", "120px");
+  beakLength.addClass("slider");
+
+  // Slider for body length
+  lengthBody = createSlider(10, 80, 0);
+  lengthBody.position(35, windowHeight - 190);
+  lengthBody.style("width", "120px");
+  lengthBody.addClass("slider");
+
+  // Slider for body width
+  widthBody = createSlider(20, 80, 0);
+  widthBody.position(35, windowHeight - 160);
+  widthBody.style("width", "120px");
+  widthBody.addClass("slider");
+
+  // Slider for body height
+  heightBody = createSlider(10, 60, 0);
+  heightBody.position(35, windowHeight - 130);
+  heightBody.style("width", "120px");
+  heightBody.addClass("slider");
+
+  // Slider for leg height
+  legHeight = createSlider(10, 29, 0, 0.5);
+  legHeight.position(35, windowHeight - 100);
+  legHeight.style("width", "120px");
+  legHeight.addClass("slider");
+
+  // Slider for feet size
+  feetSize = createSlider(0, 4, 0, 0.1);
+  feetSize.position(35, windowHeight - 70);
+  feetSize.style("width", "120px");
+  feetSize.addClass("slider");
+
+  // Slider for eyebrows angle
+  eyeBrows = createSlider(-10, 30, -10, 1);
+  eyeBrows.position(35, windowHeight - 40);
+  eyeBrows.style("width", "120px");
+  eyeBrows.addClass("slider");
+}
+
+function initializeSaveButton() {
+  buttonSave = createButton("SAVE");
+  buttonSave.position(windowWidth - 140, windowHeight - 150);
+  buttonSave.style("width", "100px");
+  buttonSave.style("height", "40px");
+  buttonSave.style("padding", "3px 6px");
+  buttonSave.style("border", "1px solid black");
+  buttonSave.style("background-color", "#f5f5f5");
+  buttonSave.style("font-family", "Manrope");
+  buttonSave.style("cursor", "pointer");
+  buttonSave.mouseOver(hoverIn);
+  buttonSave.mouseOut(hoverOut);
+  buttonSave.mousePressed(screenShot);
+}
+
 function draw() {
   background("#f0f0f0");
+  addLights();
+  orbitControl(2, 2.5, 0.01, { disableTouchActions: true });
+  drawBird();
+}
+
+function addLights() {
   ambientLight("#ffffff");
   // let directionalLightX = (mouseX / width - 0.5) * 2;
   // let directionalLightY = (mouseY / height - 0.5) * 2;
   directionalLight(50, 50, 50, -directionalLightX, -directionalLightY, -1);
-  orbitControl(2, 2.5, 0.01, { disableTouchActions: true });
-  drawBird();
 }
 
 function drawBird() {
@@ -229,8 +250,8 @@ function windowResized() {
   eyeBrows.position(35, windowHeight - 40);
   buttonSave.position(windowWidth - 140, windowHeight - 150);
   window.innerWidth < 380
-  ? colorPickerBeakLegs.position(35, windowHeight - 370)
-  : colorPickerBeakLegs.position(115, windowHeight - 300);
+    ? colorPickerBeakLegs.position(35, windowHeight - 370)
+    : colorPickerBeakLegs.position(115, windowHeight - 300);
 }
 
 // Save button color on hover
