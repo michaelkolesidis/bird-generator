@@ -27,6 +27,10 @@ function setup() {
 
   colorPickerBeakLegs = createColorPicker("#e36e20");
   colorPickerBeakLegs.position(115, windowHeight - 300);
+  console.log(window.innerWidth)
+  window.innerWidth < 380
+    ? colorPickerBeakLegs.position(35, windowHeight - 370)
+    : colorPickerBeakLegs.position(115, windowHeight - 300);
   colorPickerBeakLegs.style("height", "40px");
   colorPickerBeakLegs.style("width", "40px");
   colorPickerBeakLegs.style("padding", "0 2px");
@@ -99,7 +103,7 @@ function draw() {
   // let directionalLightY = (mouseY / height - 0.5) * 2;
   directionalLight(50, 50, 50, -directionalLightX, -directionalLightY, -1);
   orbitControl(2, 2.5, 0.01, { disableTouchActions: true });
-  drawBird()
+  drawBird();
 }
 
 function drawBird() {
@@ -224,6 +228,9 @@ function windowResized() {
   feetSize.position(35, windowHeight - 70);
   eyeBrows.position(35, windowHeight - 40);
   buttonSave.position(windowWidth - 140, windowHeight - 150);
+  window.innerWidth < 380
+  ? colorPickerBeakLegs.position(35, windowHeight - 370)
+  : colorPickerBeakLegs.position(115, windowHeight - 300);
 }
 
 // Save button color on hover
