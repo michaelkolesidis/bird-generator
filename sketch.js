@@ -25,6 +25,14 @@ function setup() {
   colorPicker.style("background-color", "#f5f5f5");
   colorPicker.style("cursor", "pointer");
 
+  colorPickerBeakLegs = createColorPicker("#e36e20");
+  colorPickerBeakLegs.position(115, windowHeight - 300);
+  colorPickerBeakLegs.style("height", "40px");
+  colorPickerBeakLegs.style("width", "40px");
+  colorPickerBeakLegs.style("padding", "0 2px");
+  colorPickerBeakLegs.style("background-color", "#f5f5f5");
+  colorPickerBeakLegs.style("cursor", "pointer");
+
   beakLength = createSlider(9, 25, 1);
   beakLength.position(35, windowHeight - 220);
   beakLength.style("width", "120px");
@@ -91,7 +99,10 @@ function draw() {
   // let directionalLightY = (mouseY / height - 0.5) * 2;
   directionalLight(50, 50, 50, -directionalLightX, -directionalLightY, -1);
   orbitControl(2, 2.5, 0.01, { disableTouchActions: true });
+  drawBird()
+}
 
+function drawBird() {
   // Body
   noStroke();
   strokeWeight(0.3);
@@ -101,12 +112,12 @@ function draw() {
   // Legs
   push();
   translate(widthBody.value() / 2 - 2, heightBody.value() / 2 + 5.1, 0);
-  stroke("#e36e20");
+  stroke(colorPickerBeakLegs.color());
   cylinder(0.5, legHeight.value());
   pop();
   push();
   translate(-widthBody.value() / 2 + 2, heightBody.value() / 2 + 5.1, 0);
-  stroke("#e36e20");
+  stroke(colorPickerBeakLegs.color());
   cylinder(0.5, legHeight.value());
   pop();
 
@@ -115,7 +126,7 @@ function draw() {
   translate(0, heightBody.value() / 2 + legHeight.value() / 2, 0); // controls both feet's height
   push();
   translate(-widthBody.value() / 2 + 10, 0, 0);
-  ambientMaterial("#e36e20");
+  ambientMaterial(colorPickerBeakLegs.color());
   beginShape(); // right foot
   vertex(-8, 5.1, -0.5); // ankle -> left toe
   vertex(-4 + feetSize.value(), 5.1, 10 + feetSize.value() * 1.75); // left toe -> right toe
@@ -125,7 +136,7 @@ function draw() {
   push();
   beginShape(); // left foot
   translate(widthBody.value() / 2 - 10, 0, 0);
-  ambientMaterial("#e36e20");
+  ambientMaterial(colorPickerBeakLegs.color());
   vertex(8, 5.1, -0.5); // ankle -> left toe
   vertex(12 + feetSize.value(), 5.1, 10 + feetSize.value() * 1.75); // left toe -> right toe
   vertex(4 - feetSize.value(), 5.1, 10 + feetSize.value() * 1.75); // right toe-> ankle
@@ -180,7 +191,7 @@ function draw() {
   translate(0, -heightBody.value() / 2 - 11, lengthBody.value() / 2 + 8);
   rotateX(80);
   noStroke();
-  ambientMaterial("#ffa314");
+  ambientMaterial(colorPickerBeakLegs.color());
   cone(5.7, beakLength.value(), 8, 0, 0);
   pop();
 

@@ -23,6 +23,7 @@ You can use the color picker and the sliders to generate your bird of choice.
 You can edit:
 
 - Bird's color
+- Beak's and legs' color
 - Body height
 - Body width
 - Body length
