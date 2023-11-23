@@ -3,6 +3,8 @@
 ![Desktop 0](./screenshots/desktop_0.png)
 ![Mobile 0](./screenshots/mobile_0.png)
 
+<a href='https://ko-fi.com/michaelkolesidis' target='_blank'><img src='https://cdn.ko-fi.com/cdn/kofi1.png' style='border:0px;height:45px;' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 A Bird Generator™ made with p5.js.
 
 ## Technologies Used
@@ -57,6 +59,12 @@ When you are happy with the result, simply click the _Save_ button and download 
 - Thanks to all p5.js contributors and, especially, to [_inaridarkfox4231_](https://github.com/inaridarkfox4231) for their contributions in impoving orbitControl() in version 1.7.0.
 
 - Sliders' CSS were written by [_amygoodchild_](https://github.com/amygoodchild) and were edited by me. They are available at p5js.org.
+
+## 💖 Support the Project
+
+Thank you so much for your interest in my project! If you want to go a step further and support my work, buy me a coffee:
+
+<a href='https://ko-fi.com/michaelkolesidis' target='_blank'><img src='https://cdn.ko-fi.com/cdn/kofi1.png' style='border:0px;height:45px;' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 ## License
 
